@@ -86,31 +86,31 @@ GET /api/invoices?status=Pending&client_name=Juan
 ```
 
 ### 1. Register User (201)
-![1 Register User](img1.png)
+![1 Register User](img1.jpg)
 
 ### 2. User Login (200)
-![2 User Login](img2.png)
+![2 User Login](img2.jpg)
 
 ### 3. Get Invoice [Unauthenticated] (401)
-![3 Invoice Unauthenticated](img3.png)
+![3 Invoice Unauthenticated](img3.jpg)
 
 ### 4. Get Invoice (Authenticated) (200)
-![4 Invoice Authenticated](img4.png)
+![4 Invoice Authenticated](img4.jpg)
 
 ### 5. Create Invoice (201)
-![5 Create Invoice](img5.png)
+![5 Create Invoice](img5.jpg)
 
 ### 6. Create Invoice (Not Authorized / Missing Fields) (422)
-![6 Create Invoice Error](img6.png)
+![6 Create Invoice Error](img6.jpg)
 
 ### 7. Get Single Invoice (200)
-![7 Get Single Invoice](img7.png)
+![7 Get Single Invoice](img7.jpg)
 
 ### 8. Get Non-Existent Invoice (404)
-![8 Get Non-Existent Invoice](img8.png)
+![8 Get Non-Existent Invoice](img8.jpg)
 
 ### 9. Update Invoice (200)
-![9 Update Invoice](img9.png)
+![9 Update Invoice](img9.jpg)
 
 ### 10. Delete Invoice (204)
-![10 Delete Invoice](img10.png)
+![10 Delete Invoice](img10.jpg)
