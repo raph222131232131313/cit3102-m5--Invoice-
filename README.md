@@ -67,17 +67,50 @@ Follow these steps to run the project from a fresh clone.
 |---|---|---|---|
 | POST | `/api/register` | Creates a new user and returns a token | No |
 | POST | `/api/login` | Logs in and returns a token | No |
-| POST | `/api/logout` | Deletes the current token | Yes |
-| GET | `/api/me` | Returns the logged-in user | Yes |
-| GET | `/api/invoices` | Lists invoices. Filters: `invoice_number`, `client_name`, `status`, `total_amount`, `tax_amount` | Yes |
-| POST | `/api/invoices` | Creates an invoice | Yes |
-| GET | `/api/invoices/{invoice}` | Shows one invoice | Yes |
-| PUT | `/api/invoices/{invoice}` | Updates an invoice | Yes |
-| DELETE | `/api/invoices/{invoice}` | Deletes an invoice | Yes |
+| GET | `/api/invoices` | Attempts to fetch invoices without authentication (returns 401) | No |
+| GET | `/api/invoices` | Lists invoices with filters (`invoice_number`, `client_name`, `status`, `total_amount`, `tax_amount`) | Yes |
+| POST | `/api/invoices` | Creates a new invoice | Yes |
+| POST | `/api/invoices` | Attempts to create an invoice with invalid/missing fields (returns 422) | Yes |
+| GET | `/api/invoices/{invoice}` | Shows details of a single invoice | Yes |
+| GET | `/api/invoices/{invoice}` | Attempts to show a non-existent invoice (returns 404) | Yes |
+| PUT | `/api/invoices/{invoice}` | Updates an existing invoice | Yes |
+| DELETE | `/api/invoices/{invoice}` | Deletes an invoice (returns 204) | Yes |
 
+### Filter examples:
 
-Filter examples:
-
+```
 GET /api/invoices
 GET /api/invoices?status=Pending
 GET /api/invoices?status=Pending&client_name=Juan
+## Proof that it runs
+```
+
+### 1. Register User (201)
+![1 Register User](img1.png)
+
+### 2. User Login (200)
+![2 User Login](img2.png)
+
+### 3. Get Invoice [Unauthenticated] (401)
+![3 Invoice Unauthenticated](img3.png)
+
+### 4. Get Invoice (Authenticated) (200)
+![4 Invoice Authenticated](img4.png)
+
+### 5. Create Invoice (201)
+![5 Create Invoice](img5.png)
+
+### 6. Create Invoice (Not Authorized / Missing Fields) (422)
+![6 Create Invoice Error](img6.png)
+
+### 7. Get Single Invoice (200)
+![7 Get Single Invoice](img7.png)
+
+### 8. Get Non-Existent Invoice (404)
+![8 Get Non-Existent Invoice](img8.png)
+
+### 9. Update Invoice (200)
+![9 Update Invoice](img9.png)
+
+### 10. Delete Invoice (204)
+![10 Delete Invoice](img10.png)
